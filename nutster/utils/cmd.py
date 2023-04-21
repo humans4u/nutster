@@ -15,7 +15,7 @@ class _color:
 def _message(tag, args, isfatal=False):
     if QUIET and not isfatal:
       return 
-    print('NCLUSTER:', tag, end=' ')
+    print('NUTSTER:', tag, end=' ')
     for arg in args:
         print(arg, end=' ')
     print()

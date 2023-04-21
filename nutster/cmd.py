@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
+from nutster import node
 from nutster.utils import cmd, naming
+from nutster.models import Neighbour
 import sys
 import argparse
 
 parser = argparse.ArgumentParser(
-    prog="ncluster",
+    prog="nutster",
     description="Network and Job cluster management."
 )
 
@@ -75,5 +77,15 @@ else:
 
 PORT = args.port
 cmd.debug("Trying to run server @", IP, PORT, f'w/ name {SNAME}')
+
+# NOW we should start the servers
+node.ip = IP
+node.port = PORT
+node.sname = SNAME
+
+success = node.add_neighbour(
+    Neighbour()
+)
+cmd.debug(f'Adding neighbour to node was {"successful" if success else "unsuccessful"}')
 
 sys.exit(0)
