@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+from nutster.tests import pipeline
 import nutster.utils.cmd as cmd 
 
 if __name__ == "__main__":
@@ -9,8 +10,8 @@ if __name__ == "__main__":
                      "if your system can run nutster") 
             cmd.info("Checking imports")
             try:
-                import nutster
                 import netifaces
+                import unittest
             except:
                 cmd.fatal("Some modules are missing")
                 sys.exit(-1)

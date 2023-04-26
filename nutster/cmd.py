@@ -2,6 +2,7 @@
 from nutster import node
 from nutster.utils import cmd, naming
 from nutster.models import Neighbour
+from nutster.pipeline import Pipeline, Process, PipelineExecutionError
 import sys
 import argparse
 
@@ -82,10 +83,5 @@ cmd.debug("Trying to run server @", IP, PORT, f'w/ name {SNAME}')
 node.ip = IP
 node.port = PORT
 node.sname = SNAME
-
-success = node.add_neighbour(
-    Neighbour()
-)
-cmd.debug(f'Adding neighbour to node was {"successful" if success else "unsuccessful"}')
 
 sys.exit(0)
